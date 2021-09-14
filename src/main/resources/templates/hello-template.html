@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hi ' + ${name}">hello! empty</p>
+<p id="ppp"></p>
+<script>
+
+    $.ajax(function(){
+        url: "local:8080/hello-api"
+
+        success:function(response){
+            $("#ppp").text("hi "+response.data.name);
+        }
+        err : function(response){
+            $("#ppp").text("hello empty");
+        }
+        }
+    )
+</script>
+</body>
+</html>
